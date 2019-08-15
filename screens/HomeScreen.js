@@ -79,8 +79,6 @@ HomeScreen.navigationOptions = {
       color = '#323ea8'
     />
   )
-
-  
   // header: null,
 };
 

@@ -12,6 +12,8 @@ const config = Platform.select({
   default: {},
 });
 
+// 1.
+
 const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,
@@ -20,20 +22,18 @@ const HomeStack = createStackNavigator(
 );
 
 HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
+  tabBarLabel: 'Create',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
+      name={'create'}
     />
   ),
 };
 
 HomeStack.path = '';
+
+// 2.
 
 const LinksStack = createStackNavigator(
   {
@@ -43,13 +43,15 @@ const LinksStack = createStackNavigator(
 );
 
 LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+  tabBarLabel: 'Balances',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+    <TabBarIcon focused={focused} name={'account-balance-wallet'} />
   ),
 };
 
 LinksStack.path = '';
+
+// 3.
 
 const SettingsStack = createStackNavigator(
   {
@@ -59,9 +61,9 @@ const SettingsStack = createStackNavigator(
 );
 
 SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+  tabBarLabel: 'History',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+    <TabBarIcon focused={focused} name={'history'} />
   ),
 };
 
