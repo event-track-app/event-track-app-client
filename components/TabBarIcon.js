@@ -5,7 +5,7 @@ import Colors from '../constants/Colors';
 
 export default function TabBarIcon(props) {
   return (
-    < MaterialIcons
+    < Ionicons
       name={props.name}
       size={26}
       style={{ marginBottom: -3 }}

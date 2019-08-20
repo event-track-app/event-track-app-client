@@ -3,7 +3,7 @@ import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
+import EventsScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
@@ -12,67 +12,65 @@ const config = Platform.select({
   default: {},
 });
 
-// 1.
-
-const HomeStack = createStackNavigator(
+const EventsStack = createStackNavigator(
   {
-    Home: HomeScreen,
+    Home: EventsScreen,
   },
   config
 );
 
-HomeStack.navigationOptions = {
-  tabBarLabel: 'Create',
+EventsStack.navigationOptions = {
+  tabBarLabel: 'Events',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={'create'}
+      name={'ios-list'}
     />
   ),
 };
 
-HomeStack.path = '';
+EventsStack.path = '';
 
 // 2.
 
-const LinksStack = createStackNavigator(
+const ProfileStack = createStackNavigator(
   {
     Links: LinksScreen,
   },
   config
 );
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Balances',
+ProfileStack.navigationOptions = {
+  tabBarLabel: 'Profile',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={'account-balance-wallet'} />
+    <TabBarIcon focused={focused} name={'md-person'} />
   ),
 };
 
-LinksStack.path = '';
+ProfileStack.path = '';
 
 // 3.
 
-const SettingsStack = createStackNavigator(
+const MoreStack = createStackNavigator(
   {
     Settings: SettingsScreen,
   },
   config
 );
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'History',
+MoreStack.navigationOptions = {
+  tabBarLabel: 'More',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={'history'} />
+    <TabBarIcon focused={focused} name={'ios-more'} />
   ),
 };
 
-SettingsStack.path = '';
+MoreStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
-  HomeStack,
-  LinksStack,
-  SettingsStack,
+  EventsStack,
+  ProfileStack,
+  MoreStack,
 });
 
 tabNavigator.path = '';
