@@ -11,19 +11,21 @@ import {
   Button,
 } from 'react-native';
 
-import { Card } from 'react-native-elements';
-import { MonoText } from '../components/StyledText';
+import { EventCard } from '../components/EventCard';
+import { whileStatement } from '@babel/types';
+
+
+// data required for the event screen
+// each card needs image_uri, event_name, event_date
 
 export default function EventsScreen () {
   return (
-    <View style='styles.container'>
-      <ScrollView>
-        <Card style='styles.cardContainer'>
-          <Image
-            source={require('../assets/images/mimosa-test.png')}
-            resizeMode='cover'
-          />
-        </Card>
+    <View style={styles.container}>
+      <ScrollView >
+        <EventCard></EventCard>
+        <EventCard></EventCard>
+        <EventCard></EventCard>
+        <EventCard></EventCard>
       </ScrollView>
     </View>
   )
@@ -92,35 +94,12 @@ EventsScreen.navigationOptions = {
   headerRight: (
     <Button
       onPress={() => alert('this is a button')}
-      title='rightB'
+      title='Add'
       color = '#323ea8'
     />
   )
   // header: null,
 };
-
-// function DevelopmentModeNotice() {
-//   if (__DEV__) {
-//     const learnMoreButton = (
-//       <Text onPress={handleLearnMorePress} style={styles.helpLinkText}>
-//         Learn more
-//       </Text>
-//     );
-
-//     return (
-//       <Text style={styles.developmentModeText}>
-//         Development mode is enabled: your app will be slower but you can use
-//         useful development tools. {learnMoreButton}
-//       </Text>
-//     );
-//   } else {
-//     return (
-//       <Text style={styles.developmentModeText}>
-//         You are not in development mode: your app will run at full speed.
-//       </Text>
-//     );
-//   }
-// }
 
 function handleLearnMorePress() {
   WebBrowser.openBrowserAsync(
@@ -137,13 +116,10 @@ function handleHelpPress() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#F2F2F2',
+    justifyContent: 'flex-start'
   },
-  cardContainer: {
-    width: 300,
-    height: 100,
-    paddingTop: 30,
-  },
+
   // welcomeContainer: {
   //   alignItems: 'center',
   //   marginTop: 10,
