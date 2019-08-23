@@ -1,35 +1,48 @@
 import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
 import {
-  Image,
-  Platform,
   ScrollView,
   StyleSheet,
-  Text,
-  TouchableOpacity,
   View,
   Button,
 } from 'react-native';
 
-import { EventCard } from '../components/EventCard';
+import EventCard from '../components/EventCard';
+import { Divider } from 'react-native-elements';
 import { whileStatement } from '@babel/types';
 
-
-// data required for the event screen
 // each card needs image_uri, event_name, event_date
+// TODO: rendering method for list of events with Divider
 
-export default function EventsScreen () {
-  return (
-    <View style={styles.container}>
-      <ScrollView >
-        <EventCard></EventCard>
-        <EventCard></EventCard>
-        <EventCard></EventCard>
-        <EventCard></EventCard>
-      </ScrollView>
-    </View>
-  )
+export default class EventsScreen extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <ScrollView >
+          <EventCard></EventCard>
+          <EventCard></EventCard>
+          <EventCard></EventCard>
+          <EventCard></EventCard>
+        </ScrollView>
+      </View>
+    )
+  }
 }
+// export default function EventsScreen () {
+
+//     return (
+//       <View style={styles.container}>
+//         {/* <ScrollView onPress={() => this.props.navigation.navigate('EventDetail')}> */}
+//         <ScrollView >
+//           <EventCard></EventCard>
+//           <EventCard></EventCard>
+//           <EventCard></EventCard>
+//           <EventCard></EventCard>
+//         </ScrollView>
+//       </View>
+//     )
+  
+// }
 
 // original homescreen
 // export default function HomeScreen() {

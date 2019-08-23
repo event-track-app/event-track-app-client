@@ -1,0 +1,1 @@
+// screen to display the member of a particular event
